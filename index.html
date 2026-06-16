@@ -24,16 +24,21 @@ body{
     background:#f8fafc;
     color:#334155;
     line-height:1.7;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
 }
 
 .container{
-    width:90%;
+    width:92%;
     max-width:1200px;
     margin:auto;
 }
 
-/* Navigation */
-
+/* NAV */
 nav{
     background:#0f172a;
     position:sticky;
@@ -58,20 +63,21 @@ nav ul{
     display:flex;
     list-style:none;
     gap:25px;
+    flex-wrap:wrap;
 }
 
 nav ul li a{
     color:white;
     text-decoration:none;
     transition:0.3s;
+    position:relative;
 }
 
 nav ul li a:hover{
     color:#60a5fa;
 }
 
-/* Hero */
-
+/* HERO */
 header{
     background:linear-gradient(135deg,#0f172a,#1e293b);
     color:white;
@@ -128,10 +134,10 @@ header{
 
 .btn:hover{
     background:#1d4ed8;
+    transform:scale(1.05);
 }
 
-/* Sections */
-
+/* SECTIONS */
 section{
     padding:80px 0;
 }
@@ -143,19 +149,18 @@ section{
     color:#0f172a;
 }
 
-/* About */
-
+/* ABOUT */
 .about{
     max-width:900px;
     margin:auto;
     text-align:center;
 }
 
-/* Skills */
-
-.skills{
+/* SKILLS + PROJECTS */
+.skills,
+.projects{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:25px;
 }
 
@@ -164,6 +169,12 @@ section{
     padding:25px;
     border-radius:15px;
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
 }
 
 .card h3{
@@ -171,8 +182,7 @@ section{
     color:#0f172a;
 }
 
-/* Experience */
-
+/* EXPERIENCE */
 .timeline{
     max-width:900px;
     margin:auto;
@@ -187,16 +197,7 @@ section{
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* Projects */
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-/* Contact */
-
+/* CONTACT */
 .contact{
     text-align:center;
 }
@@ -205,8 +206,7 @@ section{
     margin:10px 0;
 }
 
-/* Footer */
-
+/* FOOTER */
 footer{
     background:#0f172a;
     color:white;
@@ -214,27 +214,87 @@ footer{
     padding:25px;
 }
 
-/* Mobile */
+/* NAV underline effect */
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#60a5fa;
+    transition:0.3s;
+}
 
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* RESPONSIVE */
 @media(max-width:768px){
 
     .hero{
         flex-direction:column-reverse;
         text-align:center;
+        gap:30px;
     }
 
     .hero-text h1{
-        font-size:2.4rem;
+        font-size:2.2rem;
     }
 
-    nav ul{
-        gap:12px;
-        font-size:14px;
+    .hero-text h2{
+        font-size:1.2rem;
     }
 
     .hero-image img{
-        width:220px;
-        height:220px;
+        width:200px;
+        height:200px;
+    }
+
+    nav ul{
+        justify-content:center;
+        gap:12px;
+        font-size:14px;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    nav ul{
+        flex-direction:row;
+        justify-content:center;
+        gap:10px;
+    }
+
+    .logo{
+        margin-bottom:10px;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero-text h1{
+        font-size:1.8rem;
+    }
+
+    .section-title{
+        font-size:1.6rem;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    nav ul{
+        flex-direction:column;
+        align-items:center;
     }
 }
 
@@ -245,19 +305,14 @@ footer{
 
 <nav>
 <div class="container nav-container">
-
-<div class="logo">
-Mahmudul Hasan
-</div>
-
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
+    <div class="logo">Mahmudul Hasan</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </div>
 </nav>
 
@@ -265,52 +320,38 @@ Mahmudul Hasan
 <div class="container hero">
 
 <div class="hero-text">
-
 <h1>Mahmudul Hasan</h1>
-
 <h2>Infrastructure & Storage Engineer</h2>
-
 <p>
 Experienced in system administration, monitoring, and operational excellence.
 Passionate about reliability, automation, and continuous learning.
 </p>
 
 <a href="#contact" class="btn">Get In Touch</a>
-
 </div>
 
 <div class="hero-image">
-<img src="pic.png" alt="Mahmudul Hasan">
+<img src="pic.png" alt="Mahmudul Hasan - Infrastructure Engineer">
 </div>
 
 </div>
 </header>
 
 <section id="about">
-
 <div class="container">
-
 <h2 class="section-title">About Me</h2>
-
 <div class="about">
 <p>
-I am an engineering professional with experience in enterprise IT
-infrastructure, storage administration, and system operations.
-I enjoy solving technical challenges, improving service reliability,
-and supporting mission-critical environments.
+I am an engineering professional with experience in enterprise IT infrastructure, storage administration, and system operations.
+I enjoy solving technical challenges, improving service reliability, and supporting mission-critical environments.
 </p>
 </div>
-
 </div>
-
 </section>
 
 <section id="skills">
-
 <div class="container">
-
 <h2 class="section-title">Technical Skills</h2>
-
 <div class="skills">
 
 <div class="card">
@@ -323,12 +364,10 @@ and supporting mission-critical environments.
 <p>Linux, Windows</p>
 </div>
 
-
 <div class="card">
 <h3>Networking</h3>
 <p>TCP/IP, Routing, Switching</p>
 </div>
-
 
 <div class="card">
 <h3>Automation</h3>
@@ -336,101 +375,66 @@ and supporting mission-critical environments.
 </div>
 
 </div>
-
 </div>
-
 </section>
 
 <section id="experience">
-
 <div class="container">
-
 <h2 class="section-title">Experience</h2>
-
 <div class="timeline">
 
 <div class="timeline-item">
-<h3>Assistant Director(ICT)</h3>
+<h3>Assistant Director (ICT)</h3>
 <p><strong>Bangladesh Bank</strong></p>
 <p>2025 – Present</p>
-<p>
-Managing enterprise storage infrastructure,
-monitoring critical systems, capacity planning,
-incident management, and operational support.
-</p>
+<p>Managing enterprise storage infrastructure, monitoring systems, capacity planning, and incident management.</p>
 </div>
 
 <div class="timeline-item">
 <h3>Assistant System Administrator</h3>
 <p><strong>Janata Bank PLC</strong></p>
 <p>2022 – 2025</p>
-<p>
-Worked on deployment, support,
-maintenance, and technical operations.
-</p>
+<p>Handled deployment, system maintenance, and infrastructure support operations.</p>
 </div>
 
 </div>
-
 </div>
-
 </section>
 
 <section id="projects">
-
 <div class="container">
-
 <h2 class="section-title">Projects</h2>
-
 <div class="projects">
 
 <div class="card">
 <h3>NetApp Storage Administration</h3>
-<p>
-Managed enterprise storage systems,
-monitoring, performance tuning,
-and troubleshooting.
-</p>
+<p>Managed enterprise storage systems and performance optimization.</p>
 </div>
 
 <div class="card">
 <h3>Infrastructure Monitoring</h3>
-<p>
-Implemented proactive monitoring and
-alerting for critical IT services.
-</p>
+<p>Implemented proactive monitoring and alerting systems.</p>
 </div>
 
 <div class="card">
 <h3>Automation Scripts</h3>
-<p>
-Developed scripts to reduce manual effort
-and improve operational efficiency.
-</p>
+<p>Developed scripts to reduce manual operational tasks.</p>
 </div>
 
 </div>
-
 </div>
-
 </section>
 
 <section id="contact">
-
 <div class="container contact">
-
 <h2 class="section-title">Contact</h2>
 
 <p>Email: mahmuud.bb@gmail.com</p>
-
-<p>LinkedIn: linkedin.com/in/yourprofile</p>
-
-<p>GitHub: github.com/yourusername</p>
-
+<p>LinkedIn: <a href="https://linkedin.com" target="_blank">linkedin.com</a></p>
+<p>GitHub: <a href="https://github.com" target="_blank">github.com</a></p>
 <p>Dhaka, Bangladesh</p>
 
 </div>
-
 </section>
 
 <footer>
