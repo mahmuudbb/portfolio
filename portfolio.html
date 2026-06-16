@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahmudul Hasan | Infrastructure & Storage Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f8fafc;
+    color:#334155;
+    line-height:1.7;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Navigation */
+
+nav{
+    background:#0f172a;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    color:#fff;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#60a5fa;
+}
+
+/* Hero */
+
+header{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:80px 0;
+}
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-size:3.2rem;
+    margin-bottom:10px;
+}
+
+.hero-text h2{
+    color:#93c5fd;
+    font-weight:500;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    max-width:600px;
+}
+
+.hero-image img{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid rgba(255,255,255,0.15);
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 28px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+/* Sections */
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.2rem;
+    margin-bottom:50px;
+    color:#0f172a;
+}
+
+/* About */
+
+.about{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+/* Skills */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#0f172a;
+}
+
+/* Experience */
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline-item{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-left:5px solid #2563eb;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Projects */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+/* Contact */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px 0;
+}
+
+/* Footer */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:2.4rem;
+    }
+
+    nav ul{
+        gap:12px;
+        font-size:14px;
+    }
+
+    .hero-image img{
+        width:220px;
+        height:220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-container">
+
+<div class="logo">
+Mahmudul Hasan
+</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+<header>
+<div class="container hero">
+
+<div class="hero-text">
+
+<h1>Mahmudul Hasan</h1>
+
+<h2>Infrastructure & Storage Engineer</h2>
+
+<p>
+Experienced in system administration, monitoring, and operational excellence.
+Passionate about reliability, automation, and continuous learning.
+</p>
+
+<a href="#contact" class="btn">Get In Touch</a>
+
+</div>
+
+<div class="hero-image">
+<img src="pic.png" alt="Mahmudul Hasan">
+</div>
+
+</div>
+</header>
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="about">
+<p>
+I am an engineering professional with experience in enterprise IT
+infrastructure, storage administration, and system operations.
+I enjoy solving technical challenges, improving service reliability,
+and supporting mission-critical environments.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<div class="container">
+
+<h2 class="section-title">Technical Skills</h2>
+
+<div class="skills">
+
+<div class="card">
+<h3>Enterprise Storage</h3>
+<p>NetApp, SAN, NAS, IBM</p>
+</div>
+
+<div class="card">
+<h3>Operating Systems</h3>
+<p>Linux, Windows</p>
+</div>
+
+
+<div class="card">
+<h3>Networking</h3>
+<p>TCP/IP, Routing, Switching</p>
+</div>
+
+
+<div class="card">
+<h3>Automation</h3>
+<p>Python, Shell Scripting</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<div class="container">
+
+<h2 class="section-title">Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Assistand Director(ICT)</h3>
+<p><strong>Bangladesh Bank</strong></p>
+<p>2025 – Present</p>
+<p>
+Managing enterprise storage infrastructure,
+monitoring critical systems, capacity planning,
+incident management, and operational support.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Assistant System Administrator</h3>
+<p><strong>Janata Bank PLC</strong></p>
+<p>2022 – 2025</p>
+<p>
+Worked on deployment, support,
+maintenance, and technical operations.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<div class="container">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>NetApp Storage Administration</h3>
+<p>
+Managed enterprise storage systems,
+monitoring, performance tuning,
+and troubleshooting.
+</p>
+</div>
+
+<div class="card">
+<h3>Infrastructure Monitoring</h3>
+<p>
+Implemented proactive monitoring and
+alerting for critical IT services.
+</p>
+</div>
+
+<div class="card">
+<h3>Automation Scripts</h3>
+<p>
+Developed scripts to reduce manual effort
+and improve operational efficiency.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container contact">
+
+<h2 class="section-title">Contact</h2>
+
+<p>Email: mahmuud.bb@gmail.com</p>
+
+<p>LinkedIn: linkedin.com/in/yourprofile</p>
+
+<p>GitHub: github.com/yourusername</p>
+
+<p>Dhaka, Bangladesh</p>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Mahmudul Hasan | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
