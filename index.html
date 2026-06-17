@@ -9,6 +9,7 @@
 
 <style>
 
+/* RESET */
 *{
     margin:0;
     padding:0;
@@ -24,14 +25,9 @@ body{
     background:#f8fafc;
     color:#334155;
     line-height:1.7;
-    overflow-x:hidden;
 }
 
-img{
-    max-width:100%;
-    height:auto;
-}
-
+/* CONTAINER */
 .container{
     width:92%;
     max-width:1200px;
@@ -51,6 +47,7 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:18px 0;
+    position:relative;
 }
 
 .logo{
@@ -59,22 +56,46 @@ nav{
     font-weight:700;
 }
 
+/* MENU */
 nav ul{
     display:flex;
     list-style:none;
     gap:25px;
-    flex-wrap:wrap;
 }
 
 nav ul li a{
     color:white;
     text-decoration:none;
-    transition:0.3s;
     position:relative;
 }
 
-nav ul li a:hover{
-    color:#60a5fa;
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#60a5fa;
+    transition:0.3s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* HAMBURGER (FIXED) */
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+}
+
+/* HIDE CHECKBOX */
+#menu-toggle{
+    display:none;
 }
 
 /* HERO */
@@ -98,13 +119,11 @@ header{
 
 .hero-text h1{
     font-size:3.2rem;
-    margin-bottom:10px;
 }
 
 .hero-text h2{
     color:#93c5fd;
-    font-weight:500;
-    margin-bottom:20px;
+    margin:10px 0;
 }
 
 .hero-text p{
@@ -112,6 +131,7 @@ header{
     max-width:600px;
 }
 
+/* IMAGE */
 .hero-image img{
     width:280px;
     height:280px;
@@ -121,6 +141,7 @@ header{
     box-shadow:0 15px 35px rgba(0,0,0,0.3);
 }
 
+/* BUTTON */
 .btn{
     display:inline-block;
     margin-top:25px;
@@ -129,12 +150,6 @@ header{
     color:white;
     text-decoration:none;
     border-radius:8px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#1d4ed8;
-    transform:scale(1.05);
 }
 
 /* SECTIONS */
@@ -149,14 +164,7 @@ section{
     color:#0f172a;
 }
 
-/* ABOUT */
-.about{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-}
-
-/* SKILLS + PROJECTS */
+/* CARDS */
 .skills,
 .projects{
     display:grid;
@@ -169,41 +177,20 @@ section{
     padding:25px;
     border-radius:15px;
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:0.3s ease;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.12);
-}
-
-.card h3{
-    margin-bottom:10px;
-    color:#0f172a;
-}
-
-/* EXPERIENCE */
-.timeline{
-    max-width:900px;
-    margin:auto;
-}
-
+/* TIMELINE */
 .timeline-item{
     background:white;
     padding:25px;
     margin-bottom:20px;
     border-left:5px solid #2563eb;
     border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 /* CONTACT */
 .contact{
     text-align:center;
-}
-
-.contact p{
-    margin:10px 0;
 }
 
 /* FOOTER */
@@ -214,87 +201,47 @@ footer{
     padding:25px;
 }
 
-/* NAV underline effect */
-nav ul li a::after{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0;
-    height:2px;
-    background:#60a5fa;
-    transition:0.3s;
-}
+/* =========================
+   MOBILE MENU FIX (IMPORTANT)
+========================= */
 
-nav ul li a:hover::after{
-    width:100%;
-}
-
-/* RESPONSIVE */
 @media(max-width:768px){
+
+    .hamburger{
+        display:block;
+    }
+
+    nav ul{
+        position:fixed;
+        top:70px;
+        right:-100%;
+        width:260px;
+        height:100vh;
+        background:#0f172a;
+        flex-direction:column;
+        padding:30px 20px;
+        gap:20px;
+        transition:0.3s ease;
+        box-shadow:-10px 0 30px rgba(0,0,0,0.4);
+    }
+
+    /* OPEN MENU */
+    nav ul.active{
+        right:0;
+    }
 
     .hero{
         flex-direction:column-reverse;
         text-align:center;
-        gap:30px;
     }
 
     .hero-text h1{
         font-size:2.2rem;
     }
 
-    .hero-text h2{
-        font-size:1.2rem;
-    }
-
     .hero-image img{
         width:200px;
         height:200px;
-    }
-
-    nav ul{
-        justify-content:center;
-        gap:12px;
-        font-size:14px;
-    }
-}
-
-@media(max-width:600px){
-
-    .nav-container{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    nav ul{
-        flex-direction:row;
-        justify-content:center;
-        gap:10px;
-    }
-
-    .logo{
-        margin-bottom:10px;
-    }
-}
-
-@media(max-width:480px){
-
-    .hero-text h1{
-        font-size:1.8rem;
-    }
-
-    .section-title{
-        font-size:1.6rem;
-    }
-
-    .btn{
-        width:100%;
-        text-align:center;
-    }
-
-    nav ul{
-        flex-direction:column;
-        align-items:center;
     }
 }
 
@@ -305,14 +252,19 @@ nav ul li a:hover::after{
 
 <nav>
 <div class="container nav-container">
-    <div class="logo">Mahmudul Hasan</div>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+
+<div class="logo">Mahmudul Hasan</div>
+
+<div class="hamburger" id="hamburger">☰</div>
+
+<ul id="menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+
 </div>
 </nav>
 
@@ -323,15 +275,14 @@ nav ul li a:hover::after{
 <h1>Mahmudul Hasan</h1>
 <h2>Infrastructure & Storage Engineer</h2>
 <p>
-Experienced in system administration, monitoring, and operational excellence.
-Passionate about reliability, automation, and continuous learning.
+Experienced in enterprise IT infrastructure, storage administration, and system operations.
 </p>
 
 <a href="#contact" class="btn">Get In Touch</a>
 </div>
 
 <div class="hero-image">
-<img src="pic.png" alt="Mahmudul Hasan - Infrastructure Engineer">
+<img src="pic.png" alt="Mahmudul Hasan">
 </div>
 
 </div>
@@ -340,12 +291,9 @@ Passionate about reliability, automation, and continuous learning.
 <section id="about">
 <div class="container">
 <h2 class="section-title">About Me</h2>
-<div class="about">
-<p>
-I am an engineering professional with experience in enterprise IT infrastructure, storage administration, and system operations.
-I enjoy solving technical challenges, improving service reliability, and supporting mission-critical environments.
+<p style="text-align:center;max-width:700px;margin:auto;color:#475569">
+I am an engineering professional with experience in enterprise IT infrastructure, storage administration, and system operations. I enjoy solving technical challenges, improving service reliability, and supporting mission-critical environments.
 </p>
-</div>
 </div>
 </section>
 
@@ -430,16 +378,40 @@ I enjoy solving technical challenges, improving service reliability, and support
 <h2 class="section-title">Contact</h2>
 
 <p>Email: mahmuud.bb@gmail.com</p>
-<p>LinkedIn: <a href="https://linkedin.com" target="_blank">linkedin.com</a></p>
-<p>GitHub: <a href="https://github.com/mahmuudbb" target="_blank">github.com</a></p>
+<p>GitHub: github.com</p>
 <p>Dhaka, Bangladesh</p>
 
 </div>
 </section>
 
 <footer>
-<p>© 2026 Mahmudul Hasan | All Rights Reserved</p>
+© 2026 Mahmudul Hasan
 </footer>
+
+<!-- JS: FIX MENU -->
+<script>
+const menu = document.getElementById("menu");
+const hamburger = document.getElementById("hamburger");
+
+/* toggle */
+hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
+
+/* click outside close */
+document.addEventListener("click", (e) => {
+    if(!menu.contains(e.target) && !hamburger.contains(e.target)){
+        menu.classList.remove("active");
+    }
+});
+
+/* close on link click */
+document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        menu.classList.remove("active");
+    });
+});
+</script>
 
 </body>
 </html>
